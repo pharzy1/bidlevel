@@ -48,7 +48,9 @@ function resolveApi(): Plugin {
     if (!process.env.ANTHROPIC_API_KEY) return send(503, { error: 'Set ANTHROPIC_API_KEY on the server to enable Claude suggestions.' });
     try {
       // Imported at request time from the project root, so the config bundle never needs the SDK.
-      const mod = (await import(/* @vite-ignore */ pathToFileURL(join(root, 'server', 'resolve.ts')).href)) as typeof import('./server/resolve.ts');
+      const mod = (await import(/* @vite-ignore */ pathToFileURL(join(root, 'server', 'resolve.ts')).href)) as {
+        handleResolve: (body: unknown) => Promise<{ status: number; json: unknown }>;
+      };
       const { handleResolve } = mod;
       const out = await handleResolve(body);
       send(out.status, out.json);

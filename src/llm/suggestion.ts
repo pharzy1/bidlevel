@@ -1,4 +1,5 @@
-import { z } from 'zod';
+// The Anthropic SDK's zodOutputFormat helper takes Zod 4 schemas; zod 3.25 ships them at 'zod/v4'.
+import { z } from 'zod/v4';
 import { ATTRIBUTE_LABELS } from '../core/level.ts';
 import type { CatalogItem, UnresolvedLine } from '../core/types.ts';
 
