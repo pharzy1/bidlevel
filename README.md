@@ -2,6 +2,8 @@
 
 Line-item bid leveling for utility equipment RFPs.
 
+**Live demo: [bidlevel-three.vercel.app](https://bidlevel-three.vercel.app)** (sample data only; Claude suggestions are switched off on the public demo)
+
 A utility re-bids its distribution materials every quarter: transformers, cable, conductor, cutouts, arresters, meters, switchgear. It gets back price sheets that each describe the same equipment differently: `12470GY/7200`, `12.47 kV GrdY/7.2 kV`, `0.5 MVA`, `$2,890 per M ft`, `$7,375 per 2,500 ft reel`, `9-10 months`. Before anyone can compare prices, someone has to line every vendor row up against the RFP, convert units, check each spec, chase vendors for what's missing, and write up the award. BidLevel does that pass, shows its work, and remembers what it learned for the next round.
 
 ## What it does
