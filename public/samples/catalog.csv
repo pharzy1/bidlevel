@@ -1,0 +1,19 @@
+Line,Stock Code,Description,Qty,UOM
+1,TX-PM3-75,"Transformer, pad-mount, 3 phase, 75 kVA, 12470GrdY/7200 - 208Y/120, loop feed, FR3 fluid, DOE 2016",6,EA
+2,TX-PM3-150,"Transformer, pad-mount, 3 phase, 150 kVA, 12470GrdY/7200 - 208Y/120, loop feed, FR3 fluid, DOE 2016",4,EA
+3,TX-PM3-500,"Transformer, pad-mount, 3 phase, 500 kVA, 12470GrdY/7200 - 480Y/277, loop feed, FR3 fluid, DOE 2016",3,EA
+4,TX-PM3-1500,"Transformer, pad-mount, 3 phase, 1500 kVA, 12470GrdY/7200 - 480Y/277, loop feed, FR3 fluid, DOE 2016",1,EA
+5,TX-PM1-50,"Transformer, pad-mount, single phase, 50 kVA, 7200V primary, 120/240 secondary, loop feed, FR3 fluid, DOE 2016",20,EA
+6,TX-OH1-25,"Transformer, pole-mount, single phase, 25 kVA, 7200V primary, 120/240 secondary, mineral oil, DOE 2016",40,EA
+7,TX-OH1-50,"Transformer, pole-mount, single phase, 50 kVA, 7200V primary, 120/240 secondary, mineral oil, DOE 2016",25,EA
+8,CO-15-100,"Fuse cutout, 15 kV, 100 A, polymer",150,EA
+9,ARR-84,"Surge arrester, distribution class, 8.4 kV MCOV, polymer",200,EA
+10,CBL-15-1/0,"Primary cable, URD, 15 kV, 1/0 AWG AL, 133% EPR insulation",15000,FT
+11,CBL-15-750,"Primary cable, 15 kV, 750 kcmil AL, 100% EPR insulation",4000,FT
+12,CND-336,"Bare conductor, 336.4 kcmil ACSR 26/7 Linnet",12000,FT
+13,CND-4/0,"Bare conductor, 4/0 ACSR 6/1 Penguin",8000,FT
+14,INS-POST-15,"Line post insulator, polymer, 15 kV",300,EA
+15,RCL-15-630,"Recloser, 3 phase, 15 kV, 630 A",2,EA
+16,MTR-2S,"Meter, AMI, form 2S, class 200",1000,EA
+17,SWG-15-4W,"Pad-mount switchgear, 15 kV, 600 A, 4-way",2,EA
+18,ELB-15-200,"Load-break elbow, 15 kV, 200 A, for 1/0 AWG cable",120,EA

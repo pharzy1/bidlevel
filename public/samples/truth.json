@@ -1,0 +1,28 @@
+{
+  "_note": "Hand-labeled answers for the synthetic sample: which catalog line each vendor row is for (null for a no-bid), and the deviations a reviewer should see. Used by tests/eval.test.ts and scripts/eval.ts.",
+  "lines": {
+    "Vendor A": {
+      "1": "TX-PM3-75", "2": "TX-PM3-150", "3": "TX-PM3-500", "4": "TX-PM3-1500", "5": "TX-PM1-50",
+      "6": "TX-OH1-25", "7": "TX-OH1-50", "8": "CO-15-100", "9": "ARR-84", "10": "CBL-15-1/0",
+      "11": "CBL-15-750", "12": "CND-336", "13": "CND-4/0", "14": "INS-POST-15", "15": "RCL-15-630",
+      "16": "MTR-2S", "17": "SWG-15-4W", "18": "ELB-15-200"
+    },
+    "Vendor B": {
+      "1": "TX-PM3-75", "2": "TX-PM3-150", "3": "TX-PM3-500", "4": "TX-PM3-1500", "5": "TX-PM1-50",
+      "6": "TX-OH1-25", "7": "TX-OH1-50", "8": "CO-15-100", "9": "ARR-84", "10": "CBL-15-1/0",
+      "11": "CBL-15-750", "12": "CND-336", "13": "CND-4/0", "14": "INS-POST-15", "15": "RCL-15-630",
+      "16": null, "17": "SWG-15-4W", "18": "ELB-15-200", "19": "TX-PM3-150"
+    },
+    "Vendor C": {
+      "1": "TX-PM3-75", "2": "TX-PM3-150", "3": "TX-PM3-500", "4": "TX-PM3-1500", "5": "TX-PM1-50",
+      "6": "TX-OH1-25", "7": "TX-OH1-50", "8": "CO-15-100", "9": "ARR-84", "10": "CBL-15-1/0",
+      "11": "CBL-15-750", "12": "CND-336", "13": "CND-4/0", "14": "INS-POST-15", "15": "RCL-15-630",
+      "16": "MTR-2S", "17": "SWG-15-4W", "18": "ELB-15-200"
+    }
+  },
+  "deviations": [
+    { "vendor": "Vendor B", "itemId": "TX-PM3-1500", "attribute": "fluid" },
+    { "vendor": "Vendor B", "itemId": "CND-336", "attribute": "stranding" },
+    { "vendor": "Vendor C", "itemId": "ARR-84", "attribute": "mcovKv" }
+  ]
+}
