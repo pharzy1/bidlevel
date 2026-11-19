@@ -424,8 +424,8 @@ export function App() {
           <section className="panel" aria-labelledby="review-h">
             <h2 id="review-h">Waiting for review ({result.unresolved.length})</h2>
             <p className="hint">
-              The matcher leaves a line here instead of guessing. Claude can suggest a match, but only with quotes that appear word for word in the vendor’s line,
-              and a person accepts it. Decisions are remembered for the next round.
+              The matcher leaves a line here instead of guessing. Ask Reviewer suggests a match, but only with quotes that appear word for word in the vendor’s
+              line, and a person accepts it. Decisions are remembered for the next round.
             </p>
             <ReviewQueue lines={result.unresolved.slice(0, 60)} catalog={result.catalog} suggestions={suggestions} onAsk={ask} onResolve={resolve} />
             {result.unresolved.length > 60 && <p className="hint">Showing the first 60 of {result.unresolved.length}.</p>}
