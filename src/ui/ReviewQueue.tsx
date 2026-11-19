@@ -108,7 +108,7 @@ export function ReviewQueue({
                 Match
               </button>
               <button type="button" className="btn" disabled={s?.state === 'loading'} onClick={() => onAsk(u)}>
-                Ask Claude
+                Ask Reviewer
               </button>
             </div>
             {s && <SuggestionView s={s} catalog={catalog} onAccept={(itemId) => onResolve(u, itemId, 'llm')} />}
