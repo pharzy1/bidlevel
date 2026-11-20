@@ -2,7 +2,7 @@
 
 Line-item bid leveling for utility equipment RFPs.
 
-**Live demo: [bidlevel-three.vercel.app](https://bidlevel-three.vercel.app)** (sample data only; Claude suggestions are switched off on the public demo)
+**Live demo: [bidlevel-three.vercel.app](https://bidlevel-three.vercel.app)** (sample data only; suggestions are switched off on the public demo)
 
 A utility re-bids its distribution materials every quarter: transformers, cable, conductor, cutouts, arresters, meters, switchgear. It gets back price sheets that each describe the same equipment differently: `12470GY/7200`, `12.47 kV GrdY/7.2 kV`, `0.5 MVA`, `$2,890 per M ft`, `$7,375 per 2,500 ft reel`, `9-10 months`. Before anyone can compare prices, someone has to line every vendor row up against the RFP, convert units, check each spec, chase vendors for what's missing, and write up the award. BidLevel does that pass, shows its work, and remembers what it learned for the next round.
 
@@ -11,7 +11,7 @@ A utility re-bids its distribution materials every quarter: transformers, cable,
 - **Matches each vendor line to the RFP** by reading its specs, not its line number. Lines are assigned one-to-one per vendor and per equipment type with the Hungarian algorithm. Exact ratings outrank ratings that merely exceed the requirement, so a 25 kV cable goes to the 25 kV line, not the 15 kV one.
 - **Cites the vendor's own words for every check.** Each requirement (kVA, primary and secondary voltage, fluid, efficiency standard, MCOV, stranding and so on) is shown met, deviating or not stated, with the exact characters it was read from highlighted.
 - **Normalizes prices and lead times** to the RFP's unit of measure and to weeks, with the arithmetic shown. Reads CSV and Excel (`.xlsx`) price sheets, including a letterhead above the table and a total row below it.
-- **Won't guess.** A line that fits two RFP lines equally, or looks like an alternate offer, goes to a review queue. There, Claude can suggest a match, but the answer is discarded unless every quote it gives appears word for word in the vendor's line and it picked one of the candidates it was shown. A person accepts or rejects each suggestion.
+- **Won't guess.** A line that fits two RFP lines equally, or looks like an alternate offer, goes to a review queue. There, can suggest a match, but the answer is discarded unless every quote it gives appears word for word in the vendor's line and it picked one of the candidates it was shown. A person accepts or rejects each suggestion.
 - **Remembers.** Closing a round saves its reviewer decisions and prices. Next round, lines a reviewer already resolved are matched automatically, every price shows how it moved since the vendor's last bid, and a vendor that repeats a deviation is called out.
 - **Writes the clarification requests.** One letter per vendor covers every deviation, unstated requirement, unreadable lead time, ambiguous row and unpriced line, each quoting the vendor's own row.
 - **Compares award scenarios**: lowest cost line by line, lowest cost with a cap on any supplier's share, single source per vendor, and a delivery-time limit. The cap is solved by branch and bound, seeded with a greedy feasible award; it reports whether the result is proven optimal and how far it is from the uncapped minimum. Bids that deviate from spec are never awarded.
@@ -57,7 +57,7 @@ The app opens on the Q4 2026 sample. To see memory at work:
 2. Choose **Close Q4 2026 and save to memory**.
 3. Open the **Q1 2027 re-bid** tab.
 
-To enable Claude suggestions in the review queue, start the server with an Anthropic API key in its environment. The key stays on the server: the browser calls `/api/resolve`, served by the Vite dev and preview servers (`vite.config.ts`) or by `api/resolve.ts` on a host that runs Web-standard functions.
+To enable suggestions in the review queue, start the server with an Anthropic API key in its environment. The key stays on the server: the browser calls `/api/resolve`, served by the Vite dev and preview servers (`vite.config.ts`) or by `api/resolve.ts` on a host that runs Web-standard functions.
 
 ```sh
 ANTHROPIC_API_KEY=... npm run dev
@@ -90,8 +90,8 @@ npm run build
 | `src/core/report.ts` | Award recommendation with exclusions and audit trail |
 | `src/core/synthetic.ts` | Seeded generator for large test solicitations |
 | `src/core/evaluate.ts` | Scores a result against hand labels |
-| `src/llm/suggestion.ts` | Prompt, request and answer schemas, and the grounding check for Claude suggestions |
-| `server/resolve.ts` | The Claude call (`claude-opus-5-5`, structured output), run server-side |
+| `src/llm/suggestion.ts` | Prompt, request and answer schemas, and the grounding check for  suggestions |
+| `server/resolve.ts` | The  call, structured output), run server-side |
 | `src/ui/` | React interface |
 | `tests/` | 77 tests, including randomized checks of the assignment and award solvers against brute force, and a two-quarter memory workflow |
 
@@ -101,6 +101,6 @@ npm run build
 - It reads CSV and Excel. PDF price sheets aren't supported yet.
 - Ratings where higher is acceptable (voltage class, current, insulation level) are compared as "at least". Everything else must match exactly. A real evaluation committee would set this per requirement.
 - Memory is kept in the browser and shared by exporting it as a file.
-- The Claude suggestion path is written against the documented Anthropic SDK but hasn't been run against the live API.
+- The suggestion path is written against the documented Anthropic SDK but hasn't been run against the live API.
 
 Independent project. Not affiliated with any company.
